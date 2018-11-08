@@ -2,7 +2,7 @@
   "name": "appointmentsystem",
   "version": "1.0.0",
   "description": "Information of doctors Reviews about doctors  Help people finding right doctor for their requirements Can view doctor’s locations on map Doctors can handle appointment",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,10 +10,15 @@
     "type": "git",
     "url": "git+https://github.com/hasriza/AppointmentSystem.git"
   },
-  "author": "Hasan Riza","Pritesh Satpute",
+  "author": "Hasan Riza , Pritesh Satpute",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/hasriza/AppointmentSystem/issues"
   },
-  "homepage": "https://github.com/hasriza/AppointmentSystem#readme"
+  "homepage": "https://github.com/hasriza/AppointmentSystem#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mysql": "^2.16.0"
+  }
 }

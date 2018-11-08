@@ -1,8 +1,8 @@
 CREATE TABLE `doc_tab` (
-	`dr_id` int(5) NOT NULL,
+	`dr_id` int(5) NOT NULL AUTO_INCREMENT,
 	`dr_name` varchar(20) NOT NULL,
 	`window` int(3) NOT NULL DEFAULT '30',
-	`contact` (10) NOT NULL UNIQUE,
+	`contact` varchar(10) NOT NULL UNIQUE,
 	`address` varchar(30) NOT NULL,
 	`practice` varchar(20) NOT NULL,
 	`pwd` varchar(20) NOT NULL,
@@ -10,16 +10,16 @@ CREATE TABLE `doc_tab` (
 );
 
 CREATE TABLE `apt_tab` (
-	`dr_id` (5) NOT NULL,
-	`c_id` (5) NOT NULL,
+	`dr_id` INT(5) NOT NULL,
+	`c_id` INT(5) NOT NULL,
 	`schedule` DATETIME NOT NULL,
 	`subject` TEXT(100) NOT NULL
 );
 
 CREATE TABLE `cust_tab` (
-	`c_id` int(5) NOT NULL,
+	`c_id` int(5) NOT NULL AUTO_INCREMENT,
 	`cust_name` varchar(20) NOT NULL,
-	`contact` (10) NOT NULL UNIQUE,
+	`contact` varchar(10) NOT NULL UNIQUE,
 	`address` varchar(30) NOT NULL,
 	`pwd` varchar(20) NOT NULL,
 	PRIMARY KEY (`c_id`)
