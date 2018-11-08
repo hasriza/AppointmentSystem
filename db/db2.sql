@@ -7,6 +7,7 @@ CREATE TABLE `user` (
 	`address` varchar(30) NOT NULL,
 	`window` INT(2) DEFAULT '30',
 	`practice` varchar(20),
+	`role` varchar(10),
 	PRIMARY KEY (`u_id`)
 );
 
