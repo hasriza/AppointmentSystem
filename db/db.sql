@@ -11,7 +11,7 @@ CREATE TABLE `doc_tab` (
 CREATE TABLE `apt_tab` (
 	`dr_id` INT(5) NOT NULL,
 	`c_id` INT(5) NOT NULL,
-	`schedule` DATETIME(20) NOT NULL,
+	`schedule` DATETIME NOT NULL,
 	`subject` TEXT(100) NOT NULL
 );
 
