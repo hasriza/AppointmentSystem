@@ -3,7 +3,6 @@ var auth = require('./utils/authentication.js');
 
 var bodyParser = require('body-parser');
 
-
 var app = express();
 
 app.use(bodyParser.json());
@@ -46,4 +45,4 @@ app.post('/doctorRegister', function(req, res) {
      auth.doctorRegister(values,res);
  });
 
-app.listen("8080");
+app.listen(8080);
