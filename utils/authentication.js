@@ -26,14 +26,15 @@ function doctorRegister(values,res){
   });
 }
 
-function userLogin(credentials,res){
-var sql = "select *from cust_tab where contact = '"+credentials.contact+"' and pwd = '" + credentials.password+"'";
+function userLogin(req,res){
+var sql = "select *from cust_tab where contact = '"+req.body.contact+"' and pwd = '" + req.body.password+"'";
 
 con.query(sql,function (err, result) {
 	if(err) throw err;
 	
 	if(result.length > 0){
- 		res.send('Logged in');
+    req.session.contact = result[0].c_id;
+ 		res.redirect('/home');
  	}
  	else{
  		res.send("Login Failed");
@@ -41,14 +42,15 @@ con.query(sql,function (err, result) {
   });
 }
 
-function doctorLogin(credentials,res){
-var sql = "select *from doc_tab where  contact= '"+credentials.contact+"' and pwd ='" + credentials.password+"'";
+function doctorLogin(req,res){
+var sql = "select *from doc_tab where  contact= '"+req.body.contact+"' and pwd ='" + req.body.password+"'";
 
 con.query(sql,function (err, result) {
 	if(err) throw err;
 	
 	if(result.length > 0){
- 		res.send('Logged in');
+    req.session.contact = result[0].dr_id;
+    res.redirect('/dashboard');
  	}
  	else{
  		res.send("Login Failed");
@@ -56,5 +58,16 @@ con.query(sql,function (err, result) {
   });
 }
 
-module.exports = {userLogin,doctorLogin,userRegister,doctorRegister};
+function userLogout(req,res){
+  req.session.contact = null;
+  res.redirect('/userLogin');
+}
+
+
+function doctorLogout(req,res){
+  req.session.contact = null;
+  res.redirect('/doctorLogin');
+}
+
+module.exports = {userLogin,doctorLogin,userRegister,doctorRegister,userLogout,doctorLogout};
 
