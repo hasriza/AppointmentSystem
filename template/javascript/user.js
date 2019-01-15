@@ -49,7 +49,7 @@ function getDoctors(){
             	console.log(data);
             	for(var i =0 ;i<data.length;i++){
                 document.getElementById('content').innerHTML=data[i].dr_name;
-                document.getElementById('content').innerHTML+="<input type ='button' value='Book appointment' onclick=placeAppointment("+data[i].dr_id+",'"+data[i].dr_name+"')>";
+                document.getElementById('content').innerHTML+=" &nbsp;&nbsp;<input type ='button' value='Book appointment' onclick=placeAppointment("+data[i].dr_id+",'"+data[i].dr_name+"')>";
               }
             }
         });
@@ -61,7 +61,7 @@ function placeAppointment(dr_id,dr_name){
 	var html = '\
 <form action="/placeAppointment" method="post">\
 	<input type="datetime-local" name="schedule">\
-	<input type="text" name="subject">\
+	<br><input type="text" name="subject">\
 	<input type="number" name="dr_id" value="'+dr_id+'" hidden>\
 	<input type="hidden" name="dr_name" value="'+dr_name+'">\
 	<input type="submit" value="Book">\
