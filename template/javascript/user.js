@@ -48,7 +48,7 @@ function getDoctors(){
             success: function(data, status) {
             	console.log(data);
             	for(var i =0 ;i<data.length;i++){
-                document.getElementById('content').innerHTML+=data[i].dr_name;
+                document.getElementById('content').innerHTML=data[i].dr_name;
                 document.getElementById('content').innerHTML+="<input type ='button' value='Book appointment' onclick=placeAppointment("+data[i].dr_id+",'"+data[i].dr_name+"')>";
               }
             }

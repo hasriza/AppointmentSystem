@@ -2,12 +2,9 @@
 var express = require('express');
 var auth = require('./utils/authentication.js');
 var user = require('./utils/user.js');
+var doctor = require('./utils/doctor.js');
 var bodyParser = require('body-parser');
-<<<<<<< HEAD
-
-=======
 var session = require('express-session');
->>>>>>> 7c93e51d8c439f3829c8d6e0cdd3b33aed688c70
 var app = express();
 
 
@@ -57,9 +54,7 @@ app.post('/doctorRegister', function(req, res) {
      auth.doctorRegister(values,res);
  });
 
-<<<<<<< HEAD
-app.listen(8080);
-=======
+
 //Logout
 app.get('/userLogout',function(req,res){
 auth.userLogout(req,res);
@@ -89,6 +84,21 @@ app.get('/dashboard',function(req,res){
      }
 });
 
+app.get('/index',function(req,res){
+     res.sendFile('template/index.html' ,{root: __dirname });
+});
+
+app.get('/news',function(req,res){
+     res.sendFile('template/news.html' ,{root: __dirname });
+});
+
+app.get('/about',function(req,res){
+     res.sendFile('template/about.html' ,{root: __dirname });
+});
+
+app.get('/services',function(req,res){
+     res.sendFile('template/services.html' ,{root: __dirname });
+});
 //Data API
 //Users
 app.get('/getAppointments',function(req,res){
@@ -137,9 +147,9 @@ app.get('/getPractice',function(req,res){
 });
 
 //Doctor
-app.get('/getAppointments',function(req,res){
+app.get('/getSchedule',function(req,res){
     if(req.session.contact){
-     user.getAppointments(req,res);
+     doctor.getAppointments(req,res);
      }
      else{
           res.redirect("/doctorLogin");
@@ -153,4 +163,3 @@ res.send("OOPS! Something Went wrong!:(");
 });
 
 app.listen("8080");
->>>>>>> 7c93e51d8c439f3829c8d6e0cdd3b33aed688c70
